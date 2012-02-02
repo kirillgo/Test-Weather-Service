@@ -1,54 +1,55 @@
 
 /**
- * UnknownLocationFault.java
+ * ProviderInternalErrorFaultE.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
-            *  UnknownLocationFault bean class
+            *  ProviderInternalErrorFaultE bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class UnknownLocationFault
+        public  class ProviderInternalErrorFaultE
         implements org.apache.axis2.databinding.ADBBean{
-        /* This type was generated from the piece of schema that had
-                name = UnknownLocationFault
-                Namespace URI = http://www.test.com/services
-                Namespace Prefix = ns1
-                */
+        
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                "http://www.test.com/services/weather",
+                "providerInternalErrorFault",
+                "ns1");
+
             
 
                         /**
-                        * field for Location
+                        * field for ProviderInternalErrorFault
                         */
 
                         
-                                    protected java.lang.String localLocation ;
+                                    protected com.test.www.services.weather.ws.stub.ProviderInternalErrorFault localProviderInternalErrorFault ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return com.test.www.services.weather.ws.stub.ProviderInternalErrorFault
                            */
-                           public  java.lang.String getLocation(){
-                               return localLocation;
+                           public  com.test.www.services.weather.ws.stub.ProviderInternalErrorFault getProviderInternalErrorFault(){
+                               return localProviderInternalErrorFault;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Location
+                               * @param param ProviderInternalErrorFault
                                */
-                               public void setLocation(java.lang.String param){
+                               public void setProviderInternalErrorFault(com.test.www.services.weather.ws.stub.ProviderInternalErrorFault param){
                             
-                                            this.localLocation=param;
+                                            this.localProviderInternalErrorFault=param;
                                     
 
                                }
@@ -69,8 +70,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -86,58 +87,18 @@
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
             
                 
-
-
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
+                //We can safely assume an element has only one type associated with it
                 
-
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":UnknownLocationFault",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "UnknownLocationFault",
-                           xmlWriter);
-                   }
-
-               
-                   }
-               
-                                    namespace = "http://www.test.com/services";
-                                    writeStartElement(null, namespace, "location", xmlWriter);
-                             
-
-                                          if (localLocation==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("location cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localLocation);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                    xmlWriter.writeEndElement();
-               
+                                 if (localProviderInternalErrorFault==null){
+                                   throw new org.apache.axis2.databinding.ADBException("providerInternalErrorFault cannot be null!");
+                                 }
+                                 localProviderInternalErrorFault.serialize(MY_QNAME,xmlWriter);
+                            
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -312,23 +273,9 @@
 
 
         
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
-
                 
-                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services",
-                                                                      "location"));
-                                 
-                                        if (localLocation != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localLocation));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("location cannot be null!!");
-                                        }
-                                    
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
+                //We can safely assume an element has only one type associated with it
+                return localProviderInternalErrorFault.getPullParser(MY_QNAME);
 
         }
 
@@ -349,9 +296,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static UnknownLocationFault parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            UnknownLocationFault object =
-                new UnknownLocationFault();
+        public static ProviderInternalErrorFaultE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ProviderInternalErrorFaultE object =
+                new ProviderInternalErrorFaultE();
 
             int event;
             java.lang.String nillableValue = null;
@@ -363,32 +310,6 @@
                     reader.next();
 
                 
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"UnknownLocationFault".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (UnknownLocationFault)com.test.www.services.ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
 
                 
                 // Note all attributes that were handled. Used to differ normal attributes
@@ -396,36 +317,26 @@
                 java.util.Vector handledAttributes = new java.util.Vector();
                 
 
+                   
+                while(!reader.isEndElement()) {
+                    if (reader.isStartElement() ){
                 
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","providerInternalErrorFault").equals(reader.getName())){
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services","location").equals(reader.getName())){
-                                
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setLocation(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
+                                                object.setProviderInternalErrorFault(com.test.www.services.weather.ws.stub.ProviderInternalErrorFault.Factory.parse(reader));
+                                            
                               }  // End of if for expected property start element
                                 
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                              
-                            while (!reader.isStartElement() && !reader.isEndElement())
+                             else{
+                                        // A start element we are not expecting indicates an invalid parameter was passed
+                                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                             }
+                          
+                             } else {
                                 reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+                             }  
+                           }  // end of while loop
+                        
 
 
 

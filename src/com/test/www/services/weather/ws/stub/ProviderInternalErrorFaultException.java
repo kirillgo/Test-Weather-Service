@@ -6,13 +6,13 @@
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
 
-package com.test.www.services;
+package com.test.www.services.weather.ws.stub;
 
 public class ProviderInternalErrorFaultException extends java.lang.Exception{
 
-    private static final long serialVersionUID = 1328103807392L;
+    private static final long serialVersionUID = 1328163187990L;
     
-    private com.test.www.services.ProviderInternalErrorFaultE faultMessage;
+    private com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE faultMessage;
 
     
         public ProviderInternalErrorFaultException() {
@@ -32,11 +32,11 @@ public class ProviderInternalErrorFaultException extends java.lang.Exception{
         }
     
 
-    public void setFaultMessage(com.test.www.services.ProviderInternalErrorFaultE msg){
+    public void setFaultMessage(com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE msg){
        faultMessage = msg;
     }
     
-    public com.test.www.services.ProviderInternalErrorFaultE getFaultMessage(){
+    public com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE getFaultMessage(){
        return faultMessage;
     }
 }

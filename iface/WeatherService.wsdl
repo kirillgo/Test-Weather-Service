@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions name="WeatherService" targetNamespace="http://www.test.com/services" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.test.com/services" xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
-  <types>
-    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.test.com/services" xmlns:tns="http://www.test.com/services">
+<definitions name="WeatherService"
+targetNamespace="http://www.test.com/services/weather"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.test.com/services/weather"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.test.com/services/weather" xmlns:tns="http://www.test.com/services/weather"
+            elementFormDefault="qualified">
 
             <xsd:complexType name="GetWeatherRequestParams">
                 <xsd:sequence>
@@ -28,7 +36,7 @@
 
             <xsd:complexType name="ProviderNotAvailableFault">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" name="error" type="xsd:string"/>
+                    <xsd:element name="error" type="xsd:string" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="providerNotAvailableFault" type="tns:ProviderNotAvailableFault"/>
@@ -48,73 +56,63 @@
             <xsd:element name="providerInternalErrorFault" type="tns:ProviderInternalErrorFault"/>
 
         </xsd:schema>
-  </types>
-  <message name="providerNotAvailableFault">
-    <part name="fault" element="tns:providerNotAvailableFault">
-    </part>
-  </message>
-  <message name="getWeatherResponse">
-    <part name="parameters" element="tns:getWeatherResponseParams">
-    </part>
-  </message>
-  <message name="providerInternalErrorFault">
-    <part name="fault" element="tns:providerInternalErrorFault">
-    </part>
-  </message>
-  <message name="unknownLocationFault">
-    <part name="fault" element="tns:unknownLocationFault">
-    </part>
-  </message>
-  <message name="getWeatherRequest">
-    <part name="parameters" element="tns:getWeatherRequestParams">
-    </part>
-  </message>
-  <portType name="WeatherServicePortType">
-    <operation name="getWeather">
-      <input name="getWeatherRequest" message="tns:getWeatherRequest">
-    </input>
-      <output name="getWeatherResponse" message="tns:getWeatherResponse">
-    </output>
-      <fault name="providerInternalError" message="tns:providerInternalErrorFault">
-    </fault>
-      <fault name="unknownLocation" message="tns:unknownLocationFault">
-    </fault>
-      <fault name="providerNotAvailable" message="tns:providerNotAvailableFault">
-    </fault>
-    <xsd:annotation>
+    </wsdl:types>
+    <wsdl:message name="getWeatherRequest">
+        <wsdl:part name="parameters" element="tns:getWeatherRequestParams"/>
+    </wsdl:message>
+    <wsdl:message name="getWeatherResponse">
+        <wsdl:part name="parameters" element="tns:getWeatherResponseParams"/>
+    </wsdl:message>
+    <wsdl:message name="providerInternalErrorFault">
+        <wsdl:part name="fault" element="tns:providerInternalErrorFault"/>
+    </wsdl:message>
+    <wsdl:message name="providerNotAvailableFault">
+        <wsdl:part name="fault" element="tns:providerNotAvailableFault"/>
+    </wsdl:message>
+    <wsdl:message name="unknownLocationFault">
+        <wsdl:part name="fault" element="tns:unknownLocationFault"/>
+    </wsdl:message>
+    <wsdl:portType name="WeatherServicePortType">
+        <wsdl:operation name="getWeather">
+    		<xsd:annotation>
                 <wsdl:documentation>
                     Add melody to subscriber settings.
                     If need activation RBT service, then it is activated automaticaly.
                 </wsdl:documentation>
     		</xsd:annotation>
-    </operation>
-  </portType>
-  <binding name="WeatherServicePortBinding" type="tns:WeatherServicePortType">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <operation name="getWeather">
-      <soap:operation/>
-      <input name="getWeatherRequest">
-        <soap:body use="literal"/>
-      </input>
-      <output name="getWeatherResponse">
-        <soap:body use="literal"/>
-      </output>
-      <fault name="providerInternalError">
-        <soap:fault name="providerInternalError" use="literal"/>
-      </fault>
-      <fault name="unknownLocation">
-        <soap:fault name="unknownLocation" use="literal"/>
-      </fault>
-      <fault name="providerNotAvailable">
-        <soap:fault name="providerNotAvailable" use="literal"/>
-      </fault>
-    </operation>
-  </binding>
-  <service name="WeatherService">
-    <port name="WeatherServicePort" binding="tns:WeatherServicePortBinding">
-      <soap:address location="http://localhost:${HttpDefaultPort}/WeatherService/WeatherServicePort"/>
-    </port>
-  </service>
+            <wsdl:input name="getWeatherRequest" message="tns:getWeatherRequest"/>
+            <wsdl:output name="getWeatherResponse" message="tns:getWeatherResponse"/>
+            <wsdl:fault name="providerNotAvailable" message="tns:providerNotAvailableFault"/>
+            <wsdl:fault name="providerInternalError" message="tns:providerInternalErrorFault"/>
+            <wsdl:fault name="unknownLocation" message="tns:unknownLocationFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WeatherServicePortBinding" type="tns:WeatherServicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getWeather">
+            <soap:operation/>
+            <wsdl:input name="getWeatherRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getWeatherResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="providerNotAvailable">
+                <soap:fault use="literal" name="providerNotAvailable"/>
+            </wsdl:fault>
+            <wsdl:fault name="providerInternalError">
+                <soap:fault use="literal" name="providerInternalError"/>
+            </wsdl:fault>
+            <wsdl:fault name="unknownLocation">
+                <soap:fault use="literal" name="unknownLocation"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WeatherService">
+        <wsdl:port name="WeatherServicePort" binding="tns:WeatherServicePortBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/WeatherService/WeatherServicePort"/>
+        </wsdl:port>
+    </wsdl:service>
     <plink:partnerLinkType name="WeatherServiceLinkType">
         <plink:role name="WeatherServiceRole" portType="tns:WeatherServicePortType"/>
     </plink:partnerLinkType>

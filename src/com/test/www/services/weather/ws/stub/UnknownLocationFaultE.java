@@ -1,82 +1,59 @@
 
 /**
- * Provider.java
+ * UnknownLocationFaultE.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
-            *  Provider bean class
+            *  UnknownLocationFaultE bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class Provider
+        public  class UnknownLocationFaultE
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://www.test.com/services",
-                "Provider",
+                "http://www.test.com/services/weather",
+                "unknownLocationFault",
                 "ns1");
 
             
 
                         /**
-                        * field for Provider
+                        * field for UnknownLocationFault
                         */
 
                         
-                                    protected java.lang.String localProvider ;
+                                    protected com.test.www.services.weather.ws.stub.UnknownLocationFault localUnknownLocationFault ;
                                 
-                            private static java.util.HashMap _table_ = new java.util.HashMap();
 
-                            // Constructor
-                            
-                                protected Provider(java.lang.String value, boolean isRegisterValue) {
-                                    localProvider = value;
-                                    if (isRegisterValue){
-                                        
-                                               _table_.put(localProvider, this);
-                                           
-                                    }
+                           /**
+                           * Auto generated getter method
+                           * @return com.test.www.services.weather.ws.stub.UnknownLocationFault
+                           */
+                           public  com.test.www.services.weather.ws.stub.UnknownLocationFault getUnknownLocationFault(){
+                               return localUnknownLocationFault;
+                           }
 
-                                }
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param UnknownLocationFault
+                               */
+                               public void setUnknownLocationFault(com.test.www.services.weather.ws.stub.UnknownLocationFault param){
                             
-                                    public static final java.lang.String _Yandex =
-                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("Yandex");
-                                
-                                    public static final java.lang.String _RP5 =
-                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("RP5");
-                                
-                                    public static final java.lang.String _Gismeteo =
-                                        org.apache.axis2.databinding.utils.ConverterUtil.convertToString("Gismeteo");
-                                
-                                public static final Provider Yandex =
-                                    new Provider(_Yandex,true);
-                            
-                                public static final Provider RP5 =
-                                    new Provider(_RP5,true);
-                            
-                                public static final Provider Gismeteo =
-                                    new Provider(_Gismeteo,true);
-                            
-
-                                public java.lang.String getValue() { return localProvider;}
-
-                                public boolean equals(java.lang.Object obj) {return (obj == this);}
-                                public int hashCode() { return toString().hashCode();}
-                                public java.lang.String toString() {
-                                
-                                        return localProvider.toString();
+                                            this.localUnknownLocationFault=param;
                                     
 
-                                }
-
-                        
+                               }
+                            
 
      
      
@@ -112,42 +89,16 @@
                 
                 //We can safely assume an element has only one type associated with it
                 
-                            java.lang.String namespace = parentQName.getNamespaceURI();
-                            java.lang.String _localName = parentQName.getLocalPart();
-                        
-                            writeStartElement(null, namespace, _localName, xmlWriter);
-
-                            // add the type details if this is used in a simple type
-                               if (serializeType){
-                                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services");
-                                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                                           namespacePrefix+":Provider",
-                                           xmlWriter);
-                                   } else {
-                                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                                           "Provider",
-                                           xmlWriter);
-                                   }
-                               }
+                                 if (localUnknownLocationFault==null){
+                                   throw new org.apache.axis2.databinding.ADBException("unknownLocationFault cannot be null!");
+                                 }
+                                 localUnknownLocationFault.serialize(MY_QNAME,xmlWriter);
                             
-                                          if (localProvider==null){
-                                            
-                                                     throw new org.apache.axis2.databinding.ADBException("Provider cannot be null !!");
-                                                
-                                         }else{
-                                        
-                                                       xmlWriter.writeCharacters(localProvider);
-                                            
-                                         }
-                                    
-                            xmlWriter.writeEndElement();
-                    
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -324,12 +275,7 @@
         
                 
                 //We can safely assume an element has only one type associated with it
-                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(MY_QNAME,
-                            new java.lang.Object[]{
-                            org.apache.axis2.databinding.utils.reader.ADBXMLStreamReader.ELEMENT_TEXT,
-                            org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localProvider)
-                            },
-                            null);
+                return localUnknownLocationFault.getPullParser(MY_QNAME);
 
         }
 
@@ -342,41 +288,6 @@
 
         
         
-                public static Provider fromValue(java.lang.String value)
-                      throws java.lang.IllegalArgumentException {
-                    Provider enumeration = (Provider)
-                       
-                               _table_.get(value);
-                           
-
-                    if ((enumeration == null) && !((value == null) || (value.equals("")))) {
-                        throw new java.lang.IllegalArgumentException();
-                    }
-                    return enumeration;
-                }
-                public static Provider fromString(java.lang.String value,java.lang.String namespaceURI)
-                      throws java.lang.IllegalArgumentException {
-                    try {
-                       
-                                       return fromValue(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(value));
-                                   
-
-                    } catch (java.lang.Exception e) {
-                        throw new java.lang.IllegalArgumentException();
-                    }
-                }
-
-                public static Provider fromString(javax.xml.stream.XMLStreamReader xmlStreamReader,
-                                                                    java.lang.String content) {
-                    if (content.indexOf(":") > -1){
-                        java.lang.String prefix = content.substring(0,content.indexOf(":"));
-                        java.lang.String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
-                        return Provider.Factory.fromString(content,namespaceUri);
-                    } else {
-                       return Provider.Factory.fromString(content,"");
-                    }
-                }
-            
 
         /**
         * static method to create the object
@@ -385,12 +296,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static Provider parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            Provider object = null;
-                // initialize a hash map to keep values
-                java.util.Map attributeMap = new java.util.HashMap();
-                java.util.List extraAttributeList = new java.util.ArrayList<org.apache.axiom.om.OMAttribute>();
-            
+        public static UnknownLocationFaultE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            UnknownLocationFaultE object =
+                new UnknownLocationFaultE();
 
             int event;
             java.lang.String nillableValue = null;
@@ -411,22 +319,19 @@
 
                    
                 while(!reader.isEndElement()) {
-                    if (reader.isStartElement()  || reader.hasText()){
+                    if (reader.isStartElement() ){
                 
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                        if (content.indexOf(":") > 0) {
-                                            // this seems to be a Qname so find the namespace and send
-                                            prefix = content.substring(0, content.indexOf(":"));
-                                            namespaceuri = reader.getNamespaceURI(prefix);
-                                            object = Provider.Factory.fromString(content,namespaceuri);
-                                        } else {
-                                            // this seems to be not a qname send and empty namespace incase of it is
-                                            // check is done in fromString method
-                                            object = Provider.Factory.fromString(content,"");
-                                        }
-                                        
-                                        
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","unknownLocationFault").equals(reader.getName())){
+                                
+                                                object.setUnknownLocationFault(com.test.www.services.weather.ws.stub.UnknownLocationFault.Factory.parse(reader));
+                                            
+                              }  // End of if for expected property start element
+                                
+                             else{
+                                        // A start element we are not expecting indicates an invalid parameter was passed
+                                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                             }
+                          
                              } else {
                                 reader.next();
                              }  

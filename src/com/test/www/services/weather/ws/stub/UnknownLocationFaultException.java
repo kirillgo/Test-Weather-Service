@@ -6,13 +6,13 @@
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
 
-package com.test.www.services;
+package com.test.www.services.weather.ws.stub;
 
 public class UnknownLocationFaultException extends java.lang.Exception{
 
-    private static final long serialVersionUID = 1328103807405L;
+    private static final long serialVersionUID = 1328163188000L;
     
-    private com.test.www.services.UnknownLocationFaultE faultMessage;
+    private com.test.www.services.weather.ws.stub.UnknownLocationFaultE faultMessage;
 
     
         public UnknownLocationFaultException() {
@@ -32,11 +32,11 @@ public class UnknownLocationFaultException extends java.lang.Exception{
         }
     
 
-    public void setFaultMessage(com.test.www.services.UnknownLocationFaultE msg){
+    public void setFaultMessage(com.test.www.services.weather.ws.stub.UnknownLocationFaultE msg){
        faultMessage = msg;
     }
     
-    public com.test.www.services.UnknownLocationFaultE getFaultMessage(){
+    public com.test.www.services.weather.ws.stub.UnknownLocationFaultE getFaultMessage(){
        return faultMessage;
     }
 }

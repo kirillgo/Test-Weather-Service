@@ -7,7 +7,7 @@
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
@@ -19,7 +19,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://www.test.com/services",
+                "http://www.test.com/services/weather",
                 "getWeatherResponseParams",
                 "ns1");
 
@@ -30,14 +30,14 @@
                         */
 
                         
-                                    protected com.test.www.services.GetWeatherResponseParams localGetWeatherResponseParams ;
+                                    protected com.test.www.services.weather.ws.stub.GetWeatherResponseParams localGetWeatherResponseParams ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return com.test.www.services.GetWeatherResponseParams
+                           * @return com.test.www.services.weather.ws.stub.GetWeatherResponseParams
                            */
-                           public  com.test.www.services.GetWeatherResponseParams getGetWeatherResponseParams(){
+                           public  com.test.www.services.weather.ws.stub.GetWeatherResponseParams getGetWeatherResponseParams(){
                                return localGetWeatherResponseParams;
                            }
 
@@ -47,7 +47,7 @@
                                * Auto generated setter method
                                * @param param GetWeatherResponseParams
                                */
-                               public void setGetWeatherResponseParams(com.test.www.services.GetWeatherResponseParams param){
+                               public void setGetWeatherResponseParams(com.test.www.services.weather.ws.stub.GetWeatherResponseParams param){
                             
                                             this.localGetWeatherResponseParams=param;
                                     
@@ -98,7 +98,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -321,9 +321,9 @@
                 while(!reader.isEndElement()) {
                     if (reader.isStartElement() ){
                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services","getWeatherResponseParams").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","getWeatherResponseParams").equals(reader.getName())){
                                 
-                                                object.setGetWeatherResponseParams(com.test.www.services.GetWeatherResponseParams.Factory.parse(reader));
+                                                object.setGetWeatherResponseParams(com.test.www.services.weather.ws.stub.GetWeatherResponseParams.Factory.parse(reader));
                                             
                               }  // End of if for expected property start element
                                 

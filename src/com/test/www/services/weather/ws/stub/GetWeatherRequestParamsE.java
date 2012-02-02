@@ -1,55 +1,55 @@
 
 /**
- * ProviderInternalErrorFaultE.java
+ * GetWeatherRequestParamsE.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
-            *  ProviderInternalErrorFaultE bean class
+            *  GetWeatherRequestParamsE bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ProviderInternalErrorFaultE
+        public  class GetWeatherRequestParamsE
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://www.test.com/services",
-                "providerInternalErrorFault",
+                "http://www.test.com/services/weather",
+                "getWeatherRequestParams",
                 "ns1");
 
             
 
                         /**
-                        * field for ProviderInternalErrorFault
+                        * field for GetWeatherRequestParams
                         */
 
                         
-                                    protected com.test.www.services.ProviderInternalErrorFault localProviderInternalErrorFault ;
+                                    protected com.test.www.services.weather.ws.stub.GetWeatherRequestParams localGetWeatherRequestParams ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return com.test.www.services.ProviderInternalErrorFault
+                           * @return com.test.www.services.weather.ws.stub.GetWeatherRequestParams
                            */
-                           public  com.test.www.services.ProviderInternalErrorFault getProviderInternalErrorFault(){
-                               return localProviderInternalErrorFault;
+                           public  com.test.www.services.weather.ws.stub.GetWeatherRequestParams getGetWeatherRequestParams(){
+                               return localGetWeatherRequestParams;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param ProviderInternalErrorFault
+                               * @param param GetWeatherRequestParams
                                */
-                               public void setProviderInternalErrorFault(com.test.www.services.ProviderInternalErrorFault param){
+                               public void setGetWeatherRequestParams(com.test.www.services.weather.ws.stub.GetWeatherRequestParams param){
                             
-                                            this.localProviderInternalErrorFault=param;
+                                            this.localGetWeatherRequestParams=param;
                                     
 
                                }
@@ -89,16 +89,16 @@
                 
                 //We can safely assume an element has only one type associated with it
                 
-                                 if (localProviderInternalErrorFault==null){
-                                   throw new org.apache.axis2.databinding.ADBException("providerInternalErrorFault cannot be null!");
+                                 if (localGetWeatherRequestParams==null){
+                                   throw new org.apache.axis2.databinding.ADBException("getWeatherRequestParams cannot be null!");
                                  }
-                                 localProviderInternalErrorFault.serialize(MY_QNAME,xmlWriter);
+                                 localGetWeatherRequestParams.serialize(MY_QNAME,xmlWriter);
                             
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -275,7 +275,7 @@
         
                 
                 //We can safely assume an element has only one type associated with it
-                return localProviderInternalErrorFault.getPullParser(MY_QNAME);
+                return localGetWeatherRequestParams.getPullParser(MY_QNAME);
 
         }
 
@@ -296,9 +296,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ProviderInternalErrorFaultE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ProviderInternalErrorFaultE object =
-                new ProviderInternalErrorFaultE();
+        public static GetWeatherRequestParamsE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            GetWeatherRequestParamsE object =
+                new GetWeatherRequestParamsE();
 
             int event;
             java.lang.String nillableValue = null;
@@ -321,9 +321,9 @@
                 while(!reader.isEndElement()) {
                     if (reader.isStartElement() ){
                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services","providerInternalErrorFault").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","getWeatherRequestParams").equals(reader.getName())){
                                 
-                                                object.setProviderInternalErrorFault(com.test.www.services.ProviderInternalErrorFault.Factory.parse(reader));
+                                                object.setGetWeatherRequestParams(com.test.www.services.weather.ws.stub.GetWeatherRequestParams.Factory.parse(reader));
                                             
                               }  // End of if for expected property start element
                                 

@@ -1,0 +1,1 @@
+D:\workspace\axis2-1.6.1\bin\wsdl2java.bat -R ..\META-INF -S ..\src -a -or --noBuildXML  -ss -t -wv 1.1 -sd -ns2p http://www.test.com/services/weather=com.test.www.services.weather.ws.stub -uri ..\iface\WeatherService.wsdl

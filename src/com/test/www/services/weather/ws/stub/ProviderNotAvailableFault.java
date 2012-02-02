@@ -1,54 +1,66 @@
 
 /**
- * GetWeatherResponseParams.java
+ * ProviderNotAvailableFault.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
-            *  GetWeatherResponseParams bean class
+            *  ProviderNotAvailableFault bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class GetWeatherResponseParams
+        public  class ProviderNotAvailableFault
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
-                name = GetWeatherResponseParams
-                Namespace URI = http://www.test.com/services
+                name = ProviderNotAvailableFault
+                Namespace URI = http://www.test.com/services/weather
                 Namespace Prefix = ns1
                 */
             
 
                         /**
-                        * field for Weather
+                        * field for Error
                         */
 
                         
-                                    protected java.lang.String localWeather ;
+                                    protected java.lang.String localError ;
                                 
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localErrorTracker = false ;
+
+                           public boolean isErrorSpecified(){
+                               return localErrorTracker;
+                           }
+
+                           
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getWeather(){
-                               return localWeather;
+                           public  java.lang.String getError(){
+                               return localError;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Weather
+                               * @param param Error
                                */
-                               public void setWeather(java.lang.String param){
-                            
-                                            this.localWeather=param;
+                               public void setError(java.lang.String param){
+                            localErrorTracker = param != null;
+                                   
+                                            this.localError=param;
                                     
 
                                }
@@ -99,45 +111,45 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services/weather");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":GetWeatherResponseParams",
+                           namespacePrefix+":ProviderNotAvailableFault",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "GetWeatherResponseParams",
+                           "ProviderNotAvailableFault",
                            xmlWriter);
                    }
 
                
                    }
-               
-                                    namespace = "http://www.test.com/services";
-                                    writeStartElement(null, namespace, "weather", xmlWriter);
+                if (localErrorTracker){
+                                    namespace = "http://www.test.com/services/weather";
+                                    writeStartElement(null, namespace, "error", xmlWriter);
                              
 
-                                          if (localWeather==null){
+                                          if (localError==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("error cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localWeather);
+                                                   xmlWriter.writeCharacters(localError);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
-                             
+                             }
                     xmlWriter.writeEndElement();
                
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -315,16 +327,16 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
-                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services",
-                                                                      "weather"));
+                 if (localErrorTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
+                                                                      "error"));
                                  
-                                        if (localWeather != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localWeather));
+                                        if (localError != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localError));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("error cannot be null!!");
                                         }
-                                    
+                                    }
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -349,9 +361,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static GetWeatherResponseParams parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            GetWeatherResponseParams object =
-                new GetWeatherResponseParams();
+        public static ProviderNotAvailableFault parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ProviderNotAvailableFault object =
+                new ProviderNotAvailableFault();
 
             int event;
             java.lang.String nillableValue = null;
@@ -375,10 +387,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"GetWeatherResponseParams".equals(type)){
+                            if (!"ProviderNotAvailableFault".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (GetWeatherResponseParams)com.test.www.services.ExtensionMapper.getTypeObject(
+                                return (ProviderNotAvailableFault)com.test.www.services.weather.ws.stub.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -403,22 +415,21 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services","weather").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","error").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setWeather(
+                                              object.setError(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
                                     
                               }  // End of if for expected property start element
                                 
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                              
+                                    else {
+                                        
+                                    }
+                                  
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

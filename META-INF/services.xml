@@ -1,13 +1,29 @@
-<service name="WeatherService" scope="application" targetNamespace="http://www.test.com/services">
-    <description>
-        Test Weather Service for EIS
-    </description>
-    <messageReceivers>
-        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
-                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
-        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
-                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
-    </messageReceivers>
-    <schema schemaNamespace="http://quickstart.samples/xsd"/>
-    <parameter name="ServiceClass">com.test.www.services.WeatherServiceSkeleton</parameter>
-</service>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST) -->
+<serviceGroup>
+    <service name="WeatherService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.test.www.services.weather.ws.stub.WeatherServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.test.www.services.weather.ws.WeatherService</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getWeather" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.test.com/services/weather">
+            <actionMapping>http://www.test.com/services/weather/WeatherServicePortType/getWeatherRequest</actionMapping>
+            <outputActionMapping>http://www.test.com/services/weather/WeatherServicePortType/getWeatherResponse</outputActionMapping>
+            <faultActionMapping faultName="providerInternalError">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerInternalError</faultActionMapping>
+            <faultActionMapping faultName="ProviderInternalErrorFault">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerInternalError</faultActionMapping>
+            <faultActionMapping faultName="ProviderInternalErrorFault_Exception">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerInternalError</faultActionMapping>
+            <faultActionMapping faultName="providerInternalErrorFault">urn:getWeatherproviderInternalErrorFault</faultActionMapping>
+            <faultActionMapping faultName="unknownLocation">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/unknownLocation</faultActionMapping>
+            <faultActionMapping faultName="UnknownLocationFault">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/unknownLocation</faultActionMapping>
+            <faultActionMapping faultName="UnknownLocationFault_Exception">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/unknownLocation</faultActionMapping>
+            <faultActionMapping faultName="unknownLocationFault">urn:getWeatherunknownLocationFault</faultActionMapping>
+            <faultActionMapping faultName="providerNotAvailable">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerNotAvailable</faultActionMapping>
+            <faultActionMapping faultName="ProviderNotAvailableFault">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerNotAvailable</faultActionMapping>
+            <faultActionMapping faultName="ProviderNotAvailableFault_Exception">http://www.test.com/services/weather/WeatherServicePortType/getWeather/Fault/providerNotAvailable</faultActionMapping>
+            <faultActionMapping faultName="providerNotAvailableFault">urn:getWeatherproviderNotAvailableFault</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

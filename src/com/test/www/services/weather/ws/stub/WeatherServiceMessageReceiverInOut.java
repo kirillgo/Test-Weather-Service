@@ -5,7 +5,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
-        package com.test.www.services;
+        package com.test.www.services.weather.ws.stub;
 
         /**
         *  WeatherServiceMessageReceiverInOut message receiver
@@ -39,11 +39,11 @@
 
             if("getWeather".equals(methodName)){
                 
-                com.test.www.services.GetWeatherResponseParamsE getWeatherResponseParams1 = null;
-	                        com.test.www.services.GetWeatherRequestParamsE wrappedParam =
-                                                             (com.test.www.services.GetWeatherRequestParamsE)fromOM(
+                com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE getWeatherResponseParams1 = null;
+	                        com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE wrappedParam =
+                                                             (com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
-                                    com.test.www.services.GetWeatherRequestParamsE.class,
+                                    com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
                                                getWeatherResponseParams1 =
@@ -52,7 +52,7 @@
                                                          skel.getWeather(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getWeatherResponseParams1, false, new javax.xml.namespace.QName("http://www.test.com/services",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getWeatherResponseParams1, false, new javax.xml.namespace.QName("http://www.test.com/services/weather",
                                                     "getWeather"));
                                     
             } else {
@@ -96,12 +96,12 @@
         }
         
         //
-            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.GetWeatherRequestParamsE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.test.www.services.GetWeatherRequestParamsE.MY_QNAME,
+                             return param.getOMElement(com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -110,12 +110,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.GetWeatherResponseParamsE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.test.www.services.GetWeatherResponseParamsE.MY_QNAME,
+                             return param.getOMElement(com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -124,12 +124,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.ProviderInternalErrorFaultE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.test.www.services.ProviderInternalErrorFaultE.MY_QNAME,
+                             return param.getOMElement(com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -138,12 +138,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.UnknownLocationFaultE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.weather.ws.stub.UnknownLocationFaultE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.test.www.services.UnknownLocationFaultE.MY_QNAME,
+                             return param.getOMElement(com.test.www.services.weather.ws.stub.UnknownLocationFaultE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -152,12 +152,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.ProviderNotAvailableFaultE param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.test.www.services.weather.ws.stub.ProviderNotAvailableFaultE param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(com.test.www.services.ProviderNotAvailableFaultE.MY_QNAME,
+                             return param.getOMElement(com.test.www.services.weather.ws.stub.ProviderNotAvailableFaultE.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -166,12 +166,12 @@
 
             }
         
-                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.test.www.services.GetWeatherResponseParamsE param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
                            
-                                    emptyEnvelope.getBody().addChild(param.getOMElement(com.test.www.services.GetWeatherResponseParamsE.MY_QNAME,factory));
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE.MY_QNAME,factory));
                                 
 
                          return emptyEnvelope;
@@ -180,8 +180,8 @@
                     }
                     }
                     
-                         private com.test.www.services.GetWeatherResponseParamsE wrapgetWeather(){
-                                com.test.www.services.GetWeatherResponseParamsE wrappedElement = new com.test.www.services.GetWeatherResponseParamsE();
+                         private com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE wrapgetWeather(){
+                                com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE wrappedElement = new com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE();
                                 return wrappedElement;
                          }
                     
@@ -202,37 +202,37 @@
 
         try {
         
-                if (com.test.www.services.GetWeatherRequestParamsE.class.equals(type)){
+                if (com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE.class.equals(type)){
                 
-                           return com.test.www.services.GetWeatherRequestParamsE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (com.test.www.services.GetWeatherResponseParamsE.class.equals(type)){
+                if (com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE.class.equals(type)){
                 
-                           return com.test.www.services.GetWeatherResponseParamsE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (com.test.www.services.ProviderInternalErrorFaultE.class.equals(type)){
+                if (com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE.class.equals(type)){
                 
-                           return com.test.www.services.ProviderInternalErrorFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (com.test.www.services.UnknownLocationFaultE.class.equals(type)){
+                if (com.test.www.services.weather.ws.stub.UnknownLocationFaultE.class.equals(type)){
                 
-                           return com.test.www.services.UnknownLocationFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.test.www.services.weather.ws.stub.UnknownLocationFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (com.test.www.services.ProviderNotAvailableFaultE.class.equals(type)){
+                if (com.test.www.services.weather.ws.stub.ProviderNotAvailableFaultE.class.equals(type)){
                 
-                           return com.test.www.services.ProviderNotAvailableFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.test.www.services.weather.ws.stub.ProviderNotAvailableFaultE.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

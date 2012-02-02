@@ -5,7 +5,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
-    package com.test.www.services;
+    package com.test.www.services.weather.ws.stub;
     /**
      *  WeatherServiceSkeleton java skeleton for the axisService
      */
@@ -22,9 +22,9 @@
              * @throws ProviderNotAvailableFaultException 
          */
         
-                 public com.test.www.services.GetWeatherResponseParamsE getWeather
+                 public com.test.www.services.weather.ws.stub.GetWeatherResponseParamsE getWeather
                   (
-                  com.test.www.services.GetWeatherRequestParamsE getWeatherRequestParams
+                  com.test.www.services.weather.ws.stub.GetWeatherRequestParamsE getWeatherRequestParams
                   )
             throws ProviderInternalErrorFaultException,UnknownLocationFaultException,ProviderNotAvailableFaultException{
                 //TODO : fill this with the necessary business logic

@@ -1,66 +1,55 @@
 
 /**
- * ProviderNotAvailableFault.java
+ * ProviderNotAvailableFaultE.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.test.www.services;
+                package com.test.www.services.weather.ws.stub;
             
 
             /**
-            *  ProviderNotAvailableFault bean class
+            *  ProviderNotAvailableFaultE bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ProviderNotAvailableFault
+        public  class ProviderNotAvailableFaultE
         implements org.apache.axis2.databinding.ADBBean{
-        /* This type was generated from the piece of schema that had
-                name = ProviderNotAvailableFault
-                Namespace URI = http://www.test.com/services
-                Namespace Prefix = ns1
-                */
+        
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                "http://www.test.com/services/weather",
+                "providerNotAvailableFault",
+                "ns1");
+
             
 
                         /**
-                        * field for Error
+                        * field for ProviderNotAvailableFault
                         */
 
                         
-                                    protected java.lang.String localError ;
+                                    protected com.test.www.services.weather.ws.stub.ProviderNotAvailableFault localProviderNotAvailableFault ;
                                 
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localErrorTracker = false ;
-
-                           public boolean isErrorSpecified(){
-                               return localErrorTracker;
-                           }
-
-                           
 
                            /**
                            * Auto generated getter method
-                           * @return java.lang.String
+                           * @return com.test.www.services.weather.ws.stub.ProviderNotAvailableFault
                            */
-                           public  java.lang.String getError(){
-                               return localError;
+                           public  com.test.www.services.weather.ws.stub.ProviderNotAvailableFault getProviderNotAvailableFault(){
+                               return localProviderNotAvailableFault;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Error
+                               * @param param ProviderNotAvailableFault
                                */
-                               public void setError(java.lang.String param){
-                            localErrorTracker = param != null;
-                                   
-                                            this.localError=param;
+                               public void setProviderNotAvailableFault(com.test.www.services.weather.ws.stub.ProviderNotAvailableFault param){
+                            
+                                            this.localProviderNotAvailableFault=param;
                                     
 
                                }
@@ -81,8 +70,8 @@
 
         
                org.apache.axiom.om.OMDataSource dataSource =
-                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-               return factory.createOMElement(dataSource,parentQName);
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -98,58 +87,18 @@
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
             
                 
-
-
-                java.lang.String prefix = null;
-                java.lang.String namespace = null;
+                //We can safely assume an element has only one type associated with it
                 
-
-                    prefix = parentQName.getPrefix();
-                    namespace = parentQName.getNamespaceURI();
-                    writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
-                
-                  if (serializeType){
-               
-
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services");
-                   if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":ProviderNotAvailableFault",
-                           xmlWriter);
-                   } else {
-                       writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "ProviderNotAvailableFault",
-                           xmlWriter);
-                   }
-
-               
-                   }
-                if (localErrorTracker){
-                                    namespace = "http://www.test.com/services";
-                                    writeStartElement(null, namespace, "error", xmlWriter);
-                             
-
-                                          if (localError==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("error cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localError);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             }
-                    xmlWriter.writeEndElement();
-               
+                                 if (localProviderNotAvailableFault==null){
+                                   throw new org.apache.axis2.databinding.ADBException("providerNotAvailableFault cannot be null!");
+                                 }
+                                 localProviderNotAvailableFault.serialize(MY_QNAME,xmlWriter);
+                            
 
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://www.test.com/services")){
+            if(namespace.equals("http://www.test.com/services/weather")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -324,23 +273,9 @@
 
 
         
-                 java.util.ArrayList elementList = new java.util.ArrayList();
-                 java.util.ArrayList attribList = new java.util.ArrayList();
-
-                 if (localErrorTracker){
-                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services",
-                                                                      "error"));
-                                 
-                                        if (localError != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localError));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("error cannot be null!!");
-                                        }
-                                    }
-
-                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
+                
+                //We can safely assume an element has only one type associated with it
+                return localProviderNotAvailableFault.getPullParser(MY_QNAME);
 
         }
 
@@ -361,9 +296,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ProviderNotAvailableFault parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ProviderNotAvailableFault object =
-                new ProviderNotAvailableFault();
+        public static ProviderNotAvailableFaultE parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ProviderNotAvailableFaultE object =
+                new ProviderNotAvailableFaultE();
 
             int event;
             java.lang.String nillableValue = null;
@@ -375,32 +310,6 @@
                     reader.next();
 
                 
-                if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
-                  java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-                        "type");
-                  if (fullTypeName!=null){
-                    java.lang.String nsPrefix = null;
-                    if (fullTypeName.indexOf(":") > -1){
-                        nsPrefix = fullTypeName.substring(0,fullTypeName.indexOf(":"));
-                    }
-                    nsPrefix = nsPrefix==null?"":nsPrefix;
-
-                    java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
-                            if (!"ProviderNotAvailableFault".equals(type)){
-                                //find namespace for the prefix
-                                java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ProviderNotAvailableFault)com.test.www.services.ExtensionMapper.getTypeObject(
-                                     nsUri,type,reader);
-                              }
-                        
-
-                  }
-                
-
-                }
-
-                
 
                 
                 // Note all attributes that were handled. Used to differ normal attributes
@@ -408,35 +317,26 @@
                 java.util.Vector handledAttributes = new java.util.Vector();
                 
 
+                   
+                while(!reader.isEndElement()) {
+                    if (reader.isStartElement() ){
                 
-                    
-                    reader.next();
-                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","providerNotAvailableFault").equals(reader.getName())){
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services","error").equals(reader.getName())){
-                                
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setError(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
+                                                object.setProviderNotAvailableFault(com.test.www.services.weather.ws.stub.ProviderNotAvailableFault.Factory.parse(reader));
+                                            
                               }  // End of if for expected property start element
                                 
-                                    else {
-                                        
-                                    }
-                                  
-                            while (!reader.isStartElement() && !reader.isEndElement())
+                             else{
+                                        // A start element we are not expecting indicates an invalid parameter was passed
+                                        throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                             }
+                          
+                             } else {
                                 reader.next();
-                            
-                                if (reader.isStartElement())
-                                // A start element we are not expecting indicates a trailing invalid property
-                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                            
+                             }  
+                           }  // end of while loop
+                        
 
 
 
