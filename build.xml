@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test-weather-service" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.axis2.classpath">
+    <fileset dir="${basedir}/axis2/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="library.qartz.classpath">
+    <pathelement location="${basedir}/3rdparty/quartz/quartz-all-2.1.3.jar"/>
+  </path>
+  
+  <path id="library.slf4j.classpath">
+    <fileset dir="${basedir}/3rdparty/slf4j">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Test-Weather-Service -->
+  
+  <dirname property="module.test-weather-service.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.test-weather-service" value="${compiler.args}"/>
+  
+  <property name="test-weather-service.output.dir" value="${module.test-weather-service.basedir}/out/production/Test-Weather-Service"/>
+  <property name="test-weather-service.testoutput.dir" value="${module.test-weather-service.basedir}/out/test/Test-Weather-Service"/>
+  
+  <path id="test-weather-service.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="test-weather-service.module.production.classpath">
+    <path refid="library.axis2.classpath"/>
+    <path refid="library.qartz.classpath"/>
+    <path refid="library.slf4j.classpath"/>
+  </path>
+  
+  <path id="test-weather-service.runtime.production.module.classpath">
+    <path refid="library.axis2.classpath"/>
+    <path refid="library.qartz.classpath"/>
+    <path refid="library.slf4j.classpath"/>
+    <pathelement location="${test-weather-service.output.dir}"/>
+  </path>
+  
+  <path id="test-weather-service.module.classpath">
+    <path refid="library.axis2.classpath"/>
+    <path refid="library.qartz.classpath"/>
+    <path refid="library.slf4j.classpath"/>
+    <pathelement location="${test-weather-service.output.dir}"/>
+  </path>
+  
+  <path id="test-weather-service.runtime.module.classpath">
+    <path refid="library.axis2.classpath"/>
+    <path refid="library.qartz.classpath"/>
+    <path refid="library.slf4j.classpath"/>
+    <pathelement location="${test-weather-service.testoutput.dir}"/>
+    <pathelement location="${test-weather-service.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.test-weather-service">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.test-weather-service">
+    <patternset refid="excluded.from.module.test-weather-service"/>
+  </patternset>
+  
+  <path id="test-weather-service.module.sourcepath">
+    <dirset dir="${module.test-weather-service.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.test-weather-service" depends="compile.module.test-weather-service.production,compile.module.test-weather-service.tests" description="Compile module Test-Weather-Service"/>
+  
+  <target name="compile.module.test-weather-service.production" description="Compile module Test-Weather-Service; production classes">
+    <mkdir dir="${test-weather-service.output.dir}"/>
+    <javac destdir="${test-weather-service.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.test-weather-service}"/>
+      <bootclasspath refid="test-weather-service.module.bootclasspath"/>
+      <classpath refid="test-weather-service.module.production.classpath"/>
+      <src refid="test-weather-service.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.test-weather-service"/>
+    </javac>
+    
+    <copy todir="${test-weather-service.output.dir}">
+      <fileset dir="${module.test-weather-service.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.test-weather-service.tests" depends="compile.module.test-weather-service.production" description="compile module Test-Weather-Service; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.test-weather-service" description="cleanup module">
+    <delete dir="${test-weather-service.output.dir}"/>
+    <delete dir="${test-weather-service.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.test-weather-service" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.test-weather-service" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.weather-service" value="${basedir}/axis2/repository/services"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.weather-service.aar" value="${artifacts.temp.dir}/weather-service.aar"/>
+  </target>
+  
+  <target name="artifact.weather-service" depends="init.artifacts, compile.module.test-weather-service" description="Build &apos;weather-service&apos; artifact">
+    <property name="artifact.temp.output.weather-service" value="${artifacts.temp.dir}/weather_service"/>
+    <mkdir dir="${artifact.temp.output.weather-service}"/>
+    <zip destfile="${temp.jar.path.weather-service.aar}">
+      <zipfileset file="${basedir}/META-INF/services.xml" prefix="META-INF"/>
+      <zipfileset file="${basedir}/META-INF/WeatherService.wsdl" prefix="META-INF"/>
+      <zipfileset dir="${test-weather-service.output.dir}"/>
+      <zipfileset file="${basedir}/META-INF/log4j.xml"/>
+    </zip>
+    <copy file="${temp.jar.path.weather-service.aar}" tofile="${artifact.temp.output.weather-service}/weather-service.aar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.weather-service" description="Build all artifacts">
+    <mkdir dir="${artifact.output.weather-service}"/>
+    <copy todir="${artifact.output.weather-service}">
+      <fileset dir="${artifact.temp.output.weather-service}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
