@@ -13,8 +13,15 @@ targetNamespace="http://www.test.com/services/weather"
 
             <xsd:complexType name="GetWeatherRequestParams">
                 <xsd:sequence>
-                    <xsd:element name="provider" type="tns:Provider"/>
-                    <xsd:element name="location" type="xsd:string"/>
+                    <xsd:element name="provider" type="tns:Provider" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="dates">
+                        <xsd:complexType>
+                            <xsd:sequence>
+            					<xsd:element name="date" type="xsd:date" minOccurs="1" maxOccurs="unbounded"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="getWeatherRequestParams" type="tns:GetWeatherRequestParams"/>
@@ -27,30 +34,38 @@ targetNamespace="http://www.test.com/services/weather"
                 </xsd:restriction>
             </xsd:simpleType>
 
+			<xsd:complexType name="Weather">
+				<xsd:sequence>
+					<xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					<xsd:element name="date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+					<xsd:element name="weather" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
             <xsd:complexType name="GetWeatherResponseParams">
                 <xsd:sequence>
-                    <xsd:element name="weather" type="xsd:string"/>
+                    <xsd:element name="weather" type="tns:Weather" minOccurs="1" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="getWeatherResponseParams" type="tns:GetWeatherResponseParams"/>
 
             <xsd:complexType name="ProviderNotAvailableFault">
                 <xsd:sequence>
-                    <xsd:element name="error" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="providerNotAvailableFault" type="tns:ProviderNotAvailableFault"/>
 
             <xsd:complexType name="UnknownLocationFault">
                 <xsd:sequence>
-                    <xsd:element name="location" type="xsd:string"/>
+                    <xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="unknownLocationFault" type="tns:UnknownLocationFault"/>
 
             <xsd:complexType name="ProviderInternalErrorFault">
                 <xsd:sequence>
-                    <xsd:element name="error" type="xsd:string"/>
+                    <xsd:element name="error" type="xsd:string" minOccurs="1" maxOccurs="1"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="providerInternalErrorFault" type="tns:ProviderInternalErrorFault"/>
@@ -76,8 +91,6 @@ targetNamespace="http://www.test.com/services/weather"
         <wsdl:operation name="getWeather">
     		<xsd:annotation>
                 <wsdl:documentation>
-                    Add melody to subscriber settings.
-                    If need activation RBT service, then it is activated automaticaly.
                 </wsdl:documentation>
     		</xsd:annotation>
             <wsdl:input name="getWeatherRequest" message="tns:getWeatherRequest"/>

@@ -1,10 +1,14 @@
 package com.test.www.services.weather.ws;
 
-import org.omg.CORBA.PolicyListHelper;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
+
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,8 +21,12 @@ public class WeatherServiceThreadPool {
 	private static WeatherServiceThreadPool pool = null;
 	private Scheduler scheduler;
 	private SchedulerFactory sf;
+	Logger _log;
 
 	WeatherServiceThreadPool() {
+
+		_log = LoggerFactory.getLogger(WeatherServiceThreadPool.class);
+
 		try {
 			sf = new StdSchedulerFactory();
 			scheduler = sf.getScheduler();

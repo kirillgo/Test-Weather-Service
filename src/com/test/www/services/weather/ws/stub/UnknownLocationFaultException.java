@@ -10,7 +10,7 @@ package com.test.www.services.weather.ws.stub;
 
 public class UnknownLocationFaultException extends java.lang.Exception{
 
-    private static final long serialVersionUID = 1328163188000L;
+    private static final long serialVersionUID = 1328255960606L;
     
     private com.test.www.services.weather.ws.stub.UnknownLocationFaultE faultMessage;
 

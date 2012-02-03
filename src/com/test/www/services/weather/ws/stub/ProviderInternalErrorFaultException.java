@@ -10,7 +10,7 @@ package com.test.www.services.weather.ws.stub;
 
 public class ProviderInternalErrorFaultException extends java.lang.Exception{
 
-    private static final long serialVersionUID = 1328163187990L;
+    private static final long serialVersionUID = 1328255960596L;
     
     private com.test.www.services.weather.ws.stub.ProviderInternalErrorFaultE faultMessage;
 

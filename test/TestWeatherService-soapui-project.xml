@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="TestWeatherService" resourceRoot="" soapui-version="4.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WeatherServicePortBinding" type="wsdl" bindingName="{http://www.test.com/services/weather}WeatherServicePortBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/workspace/Test-Weather-Service/iface/WeatherService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/D:/workspace/Test-Weather-Service/iface/WeatherService.wsdl"><con:part><con:url>file:/D:/workspace/Test-Weather-Service/iface/WeatherService.wsdl</con:url><con:content><![CDATA[<definitions name="WeatherService" targetNamespace="http://www.test.com/services/weather" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.test.com/services/weather" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.test.com/services/weather" elementFormDefault="qualified">
+      <xsd:complexType name="GetWeatherRequestParams">
+        <xsd:sequence>
+          <xsd:element name="provider" type="tns:Provider" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="dates">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="date" type="xsd:date" minOccurs="1" maxOccurs="unbounded"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getWeatherRequestParams" type="tns:GetWeatherRequestParams"/>
+      <xsd:simpleType name="Provider">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Yandex"/>
+          <xsd:enumeration value="RP5"/>
+          <xsd:enumeration value="Gismeteo"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Weather">
+        <xsd:sequence>
+          <xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="weather" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GetWeatherResponseParams">
+        <xsd:sequence>
+          <xsd:element name="weather" type="tns:Weather" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getWeatherResponseParams" type="tns:GetWeatherResponseParams"/>
+      <xsd:complexType name="ProviderNotAvailableFault">
+        <xsd:sequence>
+          <xsd:element name="error" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="providerNotAvailableFault" type="tns:ProviderNotAvailableFault"/>
+      <xsd:complexType name="UnknownLocationFault">
+        <xsd:sequence>
+          <xsd:element name="location" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unknownLocationFault" type="tns:UnknownLocationFault"/>
+      <xsd:complexType name="ProviderInternalErrorFault">
+        <xsd:sequence>
+          <xsd:element name="error" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="providerInternalErrorFault" type="tns:ProviderInternalErrorFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getWeatherRequest">
+    <wsdl:part name="parameters" element="tns:getWeatherRequestParams"/>
+  </wsdl:message>
+  <wsdl:message name="getWeatherResponse">
+    <wsdl:part name="parameters" element="tns:getWeatherResponseParams"/>
+  </wsdl:message>
+  <wsdl:message name="providerInternalErrorFault">
+    <wsdl:part name="fault" element="tns:providerInternalErrorFault"/>
+  </wsdl:message>
+  <wsdl:message name="providerNotAvailableFault">
+    <wsdl:part name="fault" element="tns:providerNotAvailableFault"/>
+  </wsdl:message>
+  <wsdl:message name="unknownLocationFault">
+    <wsdl:part name="fault" element="tns:unknownLocationFault"/>
+  </wsdl:message>
+  <wsdl:portType name="WeatherServicePortType">
+    <wsdl:operation name="getWeather">
+      <xsd:annotation>
+        <wsdl:documentation>Add melody to subscriber settings.
+                    If need activation RBT service, then it is activated automaticaly.</wsdl:documentation>
+      </xsd:annotation>
+      <wsdl:input name="getWeatherRequest" message="tns:getWeatherRequest"/>
+      <wsdl:output name="getWeatherResponse" message="tns:getWeatherResponse"/>
+      <wsdl:fault name="providerNotAvailable" message="tns:providerNotAvailableFault"/>
+      <wsdl:fault name="providerInternalError" message="tns:providerInternalErrorFault"/>
+      <wsdl:fault name="unknownLocation" message="tns:unknownLocationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WeatherServicePortBinding" type="tns:WeatherServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getWeather">
+      <soap:operation/>
+      <wsdl:input name="getWeatherRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getWeatherResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="providerNotAvailable">
+        <soap:fault use="literal" name="providerNotAvailable"/>
+      </wsdl:fault>
+      <wsdl:fault name="providerInternalError">
+        <soap:fault use="literal" name="providerInternalError"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownLocation">
+        <soap:fault use="literal" name="unknownLocation"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeatherService">
+    <wsdl:port name="WeatherServicePort" binding="tns:WeatherServicePortBinding">
+      <soap:address location="http://localhost:${HttpDefaultPort}/WeatherService/WeatherServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+  <plink:partnerLinkType name="WeatherServiceLinkType">
+    <plink:role name="WeatherServiceRole" portType="tns:WeatherServicePortType"/>
+  </plink:partnerLinkType>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/axis2/services/WeatherService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getWeather" bindingOperationName="getWeather" type="Request-Response" outputName="getWeatherResponse" inputName="getWeatherRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request" outgoingWss="" incomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/WeatherService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:weat="http://www.test.com/services/weather">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <weat:getWeatherRequestParams>
+         <weat:provider>Yandex</weat:provider>
+         <weat:location>Saint-Petersburg</weat:location>
+         <weat:dates>
+            	<weat:date>2011-02-03</weat:date>
+            	<weat:date>2011-02-04</weat:date>
+         </weat:dates>
+      </weat:getWeatherRequestParams>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.test.com/services/weather/WeatherServicePortType/getWeatherRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

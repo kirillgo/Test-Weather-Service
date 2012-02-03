@@ -1,6 +1,6 @@
 
 /**
- * GetWeatherResponseParams.java
+ * Weather.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
@@ -11,87 +11,108 @@
             
 
             /**
-            *  GetWeatherResponseParams bean class
+            *  Weather bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class GetWeatherResponseParams
+        public  class Weather
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
-                name = GetWeatherResponseParams
+                name = Weather
                 Namespace URI = http://www.test.com/services/weather
                 Namespace Prefix = ns1
                 */
             
 
                         /**
-                        * field for Weather
-                        * This was an Array!
+                        * field for Location
                         */
 
                         
-                                    protected com.test.www.services.weather.ws.stub.Weather[] localWeather ;
+                                    protected java.lang.String localLocation ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return com.test.www.services.weather.ws.stub.Weather[]
+                           * @return java.lang.String
                            */
-                           public  com.test.www.services.weather.ws.stub.Weather[] getWeather(){
+                           public  java.lang.String getLocation(){
+                               return localLocation;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Location
+                               */
+                               public void setLocation(java.lang.String param){
+                            
+                                            this.localLocation=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for Date
+                        */
+
+                        
+                                    protected java.util.Date localDate ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.util.Date
+                           */
+                           public  java.util.Date getDate(){
+                               return localDate;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Date
+                               */
+                               public void setDate(java.util.Date param){
+                            
+                                            this.localDate=param;
+                                    
+
+                               }
+                            
+
+                        /**
+                        * field for Weather
+                        */
+
+                        
+                                    protected java.lang.String localWeather ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getWeather(){
                                return localWeather;
                            }
 
                            
                         
-
-
-                               
-                              /**
-                               * validate the array for Weather
+                            /**
+                               * Auto generated setter method
+                               * @param param Weather
                                */
-                              protected void validateWeather(com.test.www.services.weather.ws.stub.Weather[] param){
-                             
-                              if ((param != null) && (param.length < 1)){
-                                throw new java.lang.RuntimeException();
-                              }
-                              
-                              }
-
-
-                             /**
-                              * Auto generated setter method
-                              * @param param Weather
-                              */
-                              public void setWeather(com.test.www.services.weather.ws.stub.Weather[] param){
-                              
-                                   validateWeather(param);
-
-                               
-                                      this.localWeather=param;
-                              }
-
-                               
-                             
-                             /**
-                             * Auto generated add method for the array for convenience
-                             * @param param com.test.www.services.weather.ws.stub.Weather
-                             */
-                             public void addWeather(com.test.www.services.weather.ws.stub.Weather param){
-                                   if (localWeather == null){
-                                   localWeather = new com.test.www.services.weather.ws.stub.Weather[]{};
-                                   }
-
+                               public void setWeather(java.lang.String param){
                             
+                                            this.localWeather=param;
+                                    
 
-                               java.util.List list =
-                            org.apache.axis2.databinding.utils.ConverterUtil.toList(localWeather);
-                               list.add(param);
-                               this.localWeather =
-                             (com.test.www.services.weather.ws.stub.Weather[])list.toArray(
-                            new com.test.www.services.weather.ws.stub.Weather[list.size()]);
-
-                             }
-                             
+                               }
+                            
 
      
      
@@ -141,35 +162,71 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://www.test.com/services/weather");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":GetWeatherResponseParams",
+                           namespacePrefix+":Weather",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "GetWeatherResponseParams",
+                           "Weather",
                            xmlWriter);
                    }
 
                
                    }
                
-                                       if (localWeather!=null){
-                                            for (int i = 0;i < localWeather.length;i++){
-                                                if (localWeather[i] != null){
-                                                 localWeather[i].serialize(new javax.xml.namespace.QName("http://www.test.com/services/weather","weather"),
-                                                           xmlWriter);
-                                                } else {
-                                                   
-                                                           throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
-                                                    
-                                                }
+                                    namespace = "http://www.test.com/services/weather";
+                                    writeStartElement(null, namespace, "location", xmlWriter);
+                             
 
-                                            }
-                                     } else {
+                                          if (localLocation==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("location cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                               throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                                   xmlWriter.writeCharacters(localLocation);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "http://www.test.com/services/weather";
+                                    writeStartElement(null, namespace, "date", xmlWriter);
+                             
+
+                                          if (localDate==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("date cannot be null!!");
+                                                  
+                                          }else{
+
                                         
-                                    }
-                                 
+                                                   xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDate));
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "http://www.test.com/services/weather";
+                                    writeStartElement(null, namespace, "weather", xmlWriter);
+                             
+
+                                          if (localWeather==null){
+                                              // write the nil attribute
+                                              
+                                                     throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localWeather);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -355,27 +412,33 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                             if (localWeather!=null) {
-                                 for (int i = 0;i < localWeather.length;i++){
-
-                                    if (localWeather[i] != null){
-                                         elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
-                                                                          "weather"));
-                                         elementList.add(localWeather[i]);
-                                    } else {
-                                        
-                                               throw new org.apache.axis2.databinding.ADBException("weather cannot be null !!");
-                                            
-                                    }
-
-                                 }
-                             } else {
+                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
+                                                                      "location"));
                                  
-                                        throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                        if (localLocation != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localLocation));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("location cannot be null!!");
+                                        }
                                     
-                             }
-
-                        
+                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
+                                                                      "date"));
+                                 
+                                        if (localDate != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDate));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("date cannot be null!!");
+                                        }
+                                    
+                                      elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
+                                                                      "weather"));
+                                 
+                                        if (localWeather != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localWeather));
+                                        } else {
+                                           throw new org.apache.axis2.databinding.ADBException("weather cannot be null!!");
+                                        }
+                                    
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -400,9 +463,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static GetWeatherResponseParams parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            GetWeatherResponseParams object =
-                new GetWeatherResponseParams();
+        public static Weather parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Weather object =
+                new Weather();
 
             int event;
             java.lang.String nillableValue = null;
@@ -426,10 +489,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"GetWeatherResponseParams".equals(type)){
+                            if (!"Weather".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (GetWeatherResponseParams)com.test.www.services.weather.ws.stub.ExtensionMapper.getTypeObject(
+                                return (Weather)com.test.www.services.weather.ws.stub.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -451,48 +514,56 @@
                     
                     reader.next();
                 
-                        java.util.ArrayList list1 = new java.util.ArrayList();
-                    
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","location").equals(reader.getName())){
+                                
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setLocation(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","date").equals(reader.getName())){
+                                
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setDate(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDate(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","weather").equals(reader.getName())){
                                 
+                                    java.lang.String content = reader.getElementText();
                                     
+                                              object.setWeather(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
                                     
-                                    // Process the array and step past its final element's end.
-                                    list1.add(com.test.www.services.weather.ws.stub.Weather.Factory.parse(reader));
-                                                                
-                                                        //loop until we find a start element that is not part of this array
-                                                        boolean loopDone1 = false;
-                                                        while(!loopDone1){
-                                                            // We should be at the end element, but make sure
-                                                            while (!reader.isEndElement())
-                                                                reader.next();
-                                                            // Step out of this element
-                                                            reader.next();
-                                                            // Step to next element event.
-                                                            while (!reader.isStartElement() && !reader.isEndElement())
-                                                                reader.next();
-                                                            if (reader.isEndElement()){
-                                                                //two continuous end elements means we are exiting the xml structure
-                                                                loopDone1 = true;
-                                                            } else {
-                                                                if (new javax.xml.namespace.QName("http://www.test.com/services/weather","weather").equals(reader.getName())){
-                                                                    list1.add(com.test.www.services.weather.ws.stub.Weather.Factory.parse(reader));
-                                                                        
-                                                                }else{
-                                                                    loopDone1 = true;
-                                                                }
-                                                            }
-                                                        }
-                                                        // call the converter utility  to convert and set the array
-                                                        
-                                                        object.setWeather((com.test.www.services.weather.ws.stub.Weather[])
-                                                            org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
-                                                                com.test.www.services.weather.ws.stub.Weather.class,
-                                                                list1));
-                                                            
                               }  // End of if for expected property start element
                                 
                                 else{

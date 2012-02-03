@@ -84,6 +84,36 @@
                                }
                             
 
+                        /**
+                        * field for Dates
+                        */
+
+                        
+                                    protected com.test.www.services.weather.ws.stub.Dates_type0 localDates ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return com.test.www.services.weather.ws.stub.Dates_type0
+                           */
+                           public  com.test.www.services.weather.ws.stub.Dates_type0 getDates(){
+                               return localDates;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Dates
+                               */
+                               public void setDates(com.test.www.services.weather.ws.stub.Dates_type0 param){
+                            
+                                            this.localDates=param;
+                                    
+
+                               }
+                            
+
      
      
         /**
@@ -167,6 +197,12 @@
                                     
                                    xmlWriter.writeEndElement();
                              
+                                            if (localDates==null){
+                                                 throw new org.apache.axis2.databinding.ADBException("dates cannot be null!!");
+                                            }
+                                           localDates.serialize(new javax.xml.namespace.QName("http://www.test.com/services/weather","dates"),
+                                               xmlWriter);
+                                        
                     xmlWriter.writeEndElement();
                
 
@@ -370,6 +406,15 @@
                                            throw new org.apache.axis2.databinding.ADBException("location cannot be null!!");
                                         }
                                     
+                            elementList.add(new javax.xml.namespace.QName("http://www.test.com/services/weather",
+                                                                      "dates"));
+                            
+                            
+                                    if (localDates==null){
+                                         throw new org.apache.axis2.databinding.ADBException("dates cannot be null!!");
+                                    }
+                                    elementList.add(localDates);
+                                
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -470,6 +515,22 @@
                                     
                                               object.setLocation(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.test.com/services/weather","dates").equals(reader.getName())){
+                                
+                                                object.setDates(com.test.www.services.weather.ws.stub.Dates_type0.Factory.parse(reader));
                                               
                                         reader.next();
                                     

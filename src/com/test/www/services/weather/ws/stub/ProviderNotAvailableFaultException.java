@@ -10,7 +10,7 @@ package com.test.www.services.weather.ws.stub;
 
 public class ProviderNotAvailableFaultException extends java.lang.Exception{
 
-    private static final long serialVersionUID = 1328163188009L;
+    private static final long serialVersionUID = 1328255960614L;
     
     private com.test.www.services.weather.ws.stub.ProviderNotAvailableFaultE faultMessage;
 

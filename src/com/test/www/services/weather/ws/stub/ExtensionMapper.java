@@ -23,6 +23,16 @@
               
                   if (
                   "http://www.test.com/services/weather".equals(namespaceURI) &&
+                  "dates_type0".equals(typeName)){
+                   
+                            return  com.test.www.services.weather.ws.stub.Dates_type0.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://www.test.com/services/weather".equals(namespaceURI) &&
                   "Provider".equals(typeName)){
                    
                             return  com.test.www.services.weather.ws.stub.Provider.Factory.parse(reader);
@@ -36,6 +46,16 @@
                   "GetWeatherRequestParams".equals(typeName)){
                    
                             return  com.test.www.services.weather.ws.stub.GetWeatherRequestParams.Factory.parse(reader);
+                        
+
+                  }
+
+              
+                  if (
+                  "http://www.test.com/services/weather".equals(namespaceURI) &&
+                  "Weather".equals(typeName)){
+                   
+                            return  com.test.www.services.weather.ws.stub.Weather.Factory.parse(reader);
                         
 
                   }
